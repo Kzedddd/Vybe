@@ -1,0 +1,343 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ══════════════════════════════════════════════
+   VYBE — GLOBAL STYLES
+   Design System : Luxury Dark Mode / Terminal Aesthetic
+   Accent : #b44fff (violet) — NO border-radius on primary elements
+   ══════════════════════════════════════════════ */
+
+/* ── CSS Variables ─────────────────────────────── */
+:root {
+  --bg-primary:     #080808;
+  --bg-secondary:   #0f0f0f;
+  --bg-elevated:    #141414;
+  --bg-hover:       #1e1e1e;
+
+  --violet:         #b44fff;
+  --violet-dim:     #2a1040;
+
+  --text-primary:   #e8e8e8;
+  --text-secondary: #888888;
+  --text-muted:     #444444;
+
+  --border-default: #1e1e1e;
+  --border-focus:   #b44fff;
+
+  --success:        #10b981;
+  --warning:        #f59e0b;
+  --danger:         #ef4444;
+  --info:           #3b82f6;
+
+  --glow-violet:    0 0 20px rgba(180, 79, 255, 0.2);
+  --glow-violet-lg: 0 0 40px rgba(180, 79, 255, 0.35);
+}
+
+/* ── Base Reset ─────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Share Tech Mono', 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Typography ─────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Share Tech Mono', monospace;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+}
+
+/* Display headings (H1/H2 uniquement) */
+h1, h2 {
+  font-family: 'Share Tech Mono', monospace;
+}
+
+a {
+  color: var(--violet);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+a:hover {
+  color: var(--text-primary);
+}
+
+/* ── Inputs ─────────────────────────────────────── */
+input, textarea, select {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 13px;
+  padding: 10px 14px;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  border-radius: 0;  /* NO border-radius */
+  appearance: none;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 1px var(--violet), inset 0 0 8px rgba(180, 79, 255, 0.05);
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-muted);
+}
+
+input:disabled, textarea:disabled, select:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── Buttons ─────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 24px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: all 0.15s;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 0;  /* NO border-radius */
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  border-color: var(--violet);
+  color: var(--violet);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--violet);
+  color: var(--bg-primary);
+  box-shadow: var(--glow-violet);
+}
+
+.btn-primary:active:not(:disabled) {
+  background: #9b3de0;
+  border-color: #9b3de0;
+}
+
+.btn-ghost {
+  border-color: var(--border-default);
+  color: var(--text-secondary);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  border-color: var(--text-muted);
+  color: var(--text-primary);
+}
+
+.btn-danger {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: var(--danger);
+  color: var(--bg-primary);
+}
+
+.btn-sm {
+  padding: 6px 16px;
+  font-size: 10px;
+}
+
+.btn-lg {
+  padding: 14px 32px;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+}
+
+/* ── Cards ───────────────────────────────────────── */
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  border-color: var(--violet);
+  box-shadow: var(--glow-violet);
+}
+
+.card-elevated {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+}
+
+/* ── Badges ──────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: 'Share Tech Mono', monospace;
+  border: 1px solid currentColor;
+  border-radius: 0;
+}
+
+.badge-violet  { color: var(--violet); }
+.badge-success { color: var(--success); }
+.badge-warning { color: var(--warning); }
+.badge-danger  { color: var(--danger); }
+.badge-muted   { color: var(--text-muted); border-color: var(--border-default); }
+
+/* ── Dividers ────────────────────────────────────── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border-default);
+  margin: 24px 0;
+}
+
+/* ── Scrollbar ───────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border-default); }
+::-webkit-scrollbar-thumb:hover { background: var(--violet); }
+
+/* ── Selection ───────────────────────────────────── */
+::selection {
+  background: var(--violet-dim);
+  color: var(--violet);
+}
+
+/* ── Glitch Effect ───────────────────────────────── */
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  color: var(--violet);
+}
+
+.glitch::before {
+  animation: glitch-1 6s infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+  transform: translateX(-2px);
+}
+
+.glitch::after {
+  animation: glitch-2 6s infinite reverse;
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+  transform: translateX(2px);
+}
+
+/* ── Ticker ──────────────────────────────────────── */
+.ticker-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ticker-content {
+  display: inline-block;
+  animation: scroll-ticker 40s linear infinite;
+  padding-right: 48px;
+}
+
+/* ── Animations ──────────────────────────────────── */
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@keyframes glitch-1 {
+  0%   { transform: none; opacity: 0; }
+  5%   { transform: skewX(-18deg) translateX(-5px); opacity: 0.9; }
+  6%   { transform: none; opacity: 0; }
+  25%  { transform: none; opacity: 0; }
+  27%  { transform: skewX(10deg) translateX(4px); opacity: 0.7; }
+  28%  { transform: none; opacity: 0; }
+  100% { transform: none; opacity: 0; }
+}
+
+@keyframes glitch-2 {
+  0%   { transform: none; opacity: 0; }
+  5%   { transform: skewX(14deg) translateX(5px); opacity: 0.8; }
+  6%   { transform: none; opacity: 0; }
+  25%  { transform: none; opacity: 0; }
+  27%  { transform: skewX(-10deg) translateX(-4px); opacity: 0.6; }
+  28%  { transform: none; opacity: 0; }
+  100% { transform: none; opacity: 0; }
+}
+
+@keyframes scroll-ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-violet {
+  0%, 100% { box-shadow: 0 0 8px rgba(180, 79, 255, 0.2); }
+  50%       { box-shadow: 0 0 24px rgba(180, 79, 255, 0.5); }
+}
+
+/* ── Focus visible (accessibility) ──────────────── */
+:focus-visible {
+  outline: 1px solid var(--violet);
+  outline-offset: 2px;
+}
+
+/* ── Utils ───────────────────────────────────────── */
+.mono { font-family: 'Share Tech Mono', monospace; }
+.uppercase { text-transform: uppercase; }
+.fade-in { animation: fade-in 0.2s ease-out; }
+
+/* ── Terminal cursor ─────────────────────────────── */
+.cursor::after {
+  content: '█';
+  color: var(--violet);
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+
+/* ── Violet glow hover (utilitaire) ─────────────── */
+.hover-glow:hover {
+  box-shadow: var(--glow-violet);
+  border-color: var(--violet) !important;
+}
+
+/* ── Status dots ─────────────────────────────────── */
+.dot-success { color: var(--success); }
+.dot-warning { color: var(--warning); }
+.dot-danger  { color: var(--danger); }
+.dot-muted   { color: var(--text-muted); }

@@ -1,0 +1,28 @@
+{
+  "packageManager": "npm@10.0.0",
+  "name": "vybe",
+  "version": "1.0.0",
+  "description": "Vybe - Event ticketing platform with social network features",
+  "private": true,
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "@typescript-eslint/eslint-plugin": "^6.17.0",
+    "@typescript-eslint/parser": "^6.17.0",
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1",
+    "turbo": "latest",
+    "typescript": "^5.3.3"
+  }
+}
